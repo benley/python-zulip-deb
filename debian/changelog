@@ -1,3 +1,9 @@
+python-zulip (0.2.0-3) precise; urgency=low
+
+  * Okay, I guess some build-depends help.
+
+ -- Benjamin Staffin <ben@cloudscaling.com>  Wed, 04 Sep 2013 00:43:04 -0700
+
 python-zulip (0.2.0-2) precise; urgency=low
 
   * Added dependencies on simplejson, requests
