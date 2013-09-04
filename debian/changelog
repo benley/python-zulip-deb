@@ -1,3 +1,9 @@
+python-zulip (0.2.0-2) precise; urgency=low
+
+  * Added dependencies on simplejson, requests
+
+ -- Benjamin Staffin <ben@cloudscaling.com>  Tue, 03 Sep 2013 23:23:15 -0700
+
 python-zulip (0.2.0-1) unstable; urgency=low
 
   * Initial packaging for Debian

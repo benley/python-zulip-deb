@@ -3,7 +3,7 @@ Section: python
 Priority: extra
 Maintainer: Benjamin Staffin <ben@cloudscaling.com>
 Build-Depends: debhelper (>= 8.0.0), python | python-all | python-dev |
- python-all-dev
+ python-all-dev, python-setuptools
 Standards-Version: 3.9.3
 Homepage: https://zulip.com/api/
 #Vcs-Git: git://git.debian.org/collab-maint/python-zulip.git
