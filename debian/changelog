@@ -1,0 +1,5 @@
+python-zulip (0.2.0-1) unstable; urgency=low
+
+  * Initial packaging for Debian
+
+ -- Benjamin Staffin <ben@cloudscaling.com>  Tue, 03 Sep 2013 20:08:17 -0700
