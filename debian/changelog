@@ -1,3 +1,9 @@
+python-zulip (0.2.0-4) precise; urgency=low
+
+  * Specify high-enough requests requirement in setup.py
+
+ -- Benjamin Staffin <ben@cloudscaling.com>  Wed, 04 Sep 2013 16:13:51 -0700
+
 python-zulip (0.2.0-3) precise; urgency=low
 
   * Okay, I guess some build-depends help.

@@ -13,5 +13,5 @@
              [os.path.join("demos", relpath) for relpath in
              os.listdir("demos")])],
        scripts=["bin/zulip-send"],
-+      install_requires=['simplejson>=2.3.2', 'requests>=0.8.2'],
++      install_requires=['simplejson>=2.3.2', 'requests>=0.12.1'],
       )
