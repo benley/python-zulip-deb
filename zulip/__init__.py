@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright © 2012 Zulip, Inc.
+# Copyright © 2012-2013 Zulip, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -31,9 +31,10 @@ import optparse
 from distutils.version import LooseVersion
 
 from ConfigParser import SafeConfigParser
+import logging
 
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 # Check that we have a recent enough version
 # Older versions don't provide the 'json' attribute on responses.
@@ -59,12 +60,16 @@ def generate_option_group(parser):
     group.add_option('-v', '--verbose',
                      action='store_true',
                      help='Provide detailed output.')
+    group.add_option('--client',
+                     action='store',
+                     default="API: Python",
+                     help=optparse.SUPPRESS_HELP)
 
     return group
 
 def init_from_options(options):
     return Client(email=options.email, api_key=options.api_key, config_file=options.config_file,
-                  verbose=options.verbose, site=options.site)
+                  verbose=options.verbose, site=options.site, client=options.client)
 
 class Client(object):
     def __init__(self, email=None, api_key=None, config_file=None,
@@ -126,7 +131,7 @@ class Client(object):
                 return False
             if self.verbose:
                 if not query_state["had_error_retry"]:
-                    sys.stdout.write("humbug API(%s): connection error%s -- retrying." % \
+                    sys.stdout.write("zulip API(%s): connection error%s -- retrying." % \
                             (url.split(API_VERSTRING, 2)[0], error_string,))
                     query_state["had_error_retry"] = True
                 else:
@@ -288,6 +293,27 @@ def _mk_events(event_types=None):
 
 def _kwargs_to_dict(**kwargs):
     return kwargs
+
+class ZulipStream(object):
+    """
+    A Zulip stream-like object
+    """
+
+    def __init__(self, type, to, subject, **kwargs):
+        self.client = Client(**kwargs)
+        self.type = type
+        self.to = to
+        self.subject = subject
+
+    def write(self, content):
+        message = {"type": self.type,
+                   "to": self.to,
+                   "subject": self.subject,
+                   "content": content}
+        self.client.send_message(message)
+
+    def flush(self):
+        pass
 
 Client._register('send_message', url='messages', make_request=(lambda request: request))
 Client._register('get_messages', method='GET', url='messages/latest', longpolling=True)
