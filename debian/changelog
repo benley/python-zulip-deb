@@ -1,3 +1,9 @@
+python-zulip (0.2.2-1) precise; urgency=low
+
+  * Imported Upstream version 0.2.2
+
+ -- Benjamin Staffin <ben@cloudscaling.com>  Thu, 14 Nov 2013 01:16:51 -0800
+
 python-zulip (0.2.1-1) precise; urgency=low
 
   * Imported Upstream version 0.2.1

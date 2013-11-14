@@ -2,12 +2,15 @@ Source: python-zulip
 Section: python
 Priority: extra
 Maintainer: Benjamin Staffin <ben@cloudscaling.com>
-Build-Depends: debhelper (>= 8.0.0), python | python-all | python-dev |
- python-all-dev, python-setuptools, python-simplejson, python-requests
+Build-Depends: debhelper (>= 8.0.0),
+ python | python-all | python-dev | python-all-dev,
+ python-requests,
+ python-setuptools,
+ python-simplejson
 Standards-Version: 3.9.3
 Homepage: https://zulip.com/api/
-#Vcs-Git: git://git.debian.org/collab-maint/python-zulip.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/python-zulip.git;a=summary
+Vcs-Git: https://github.com/benley/python-zulip.git
+Vcs-Browser: https://github.com/benley/python-zulip
 
 Package: python-zulip
 Architecture: all
